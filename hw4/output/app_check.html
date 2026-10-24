@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Check · Campus Customs</title>
+<style>
+  :root { --navy:#00356b; --ink:#15181d; --muted:#5b616b; --line:#e6e1d8; --bone:#f6f3ee; --ok:#1f7a3a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:var(--ink); background:#fff; }
+  header { background:#0b1f3a; color:#fff; padding:2.5rem 1.25rem; }
+  header div, main { max-width:1100px; margin:0 auto; }
+  h1 { font-family:Georgia,serif; font-weight:500; font-size:2.3rem; margin:0 0 .4rem; }
+  header p { margin:0; color:#cfdbee; }
+  main { padding:1.5rem 1.25rem 4rem; }
+  nav ol { padding-left:1.2rem; }
+  section { border-top:1px solid var(--line); padding:2.2rem 0 1rem; }
+  h2 { font-family:Georgia,serif; font-weight:500; font-size:1.7rem; margin:0 0 .3rem; }
+  .pass { display:inline-block; background:#e6f4ea; color:var(--ok); font-weight:700; font-size:.78rem; letter-spacing:.08em; padding:.2rem .6rem; border-radius:999px; margin-bottom:.6rem; }
+  .what { font-size:1.05rem; }
+  figure { margin:1rem 0 1.4rem; }
+  img { width:100%; border:1px solid var(--line); box-shadow:0 6px 24px rgba(11,31,58,.12); }
+  figcaption { font-size:.92rem; color:var(--muted); margin-top:.5rem; }
+  blockquote { margin:.8rem 0; padding:.8rem 1rem; background:var(--bone); border-left:3px solid var(--navy); font-size:.95rem; }
+  .stock { border-collapse:collapse; margin:.6rem 0; }
+  .stock td { border:1px solid var(--line); padding:.45rem .9rem; text-align:center; font-size:.85rem; }
+  .stock td.zero { color:#9b2c1f; }
+  .stock td.hl { outline:2px solid var(--navy); outline-offset:-2px; background:#eef3fb; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:800px) { .grid2 { grid-template-columns:1fr; } }
+  .meta { font-size:.85rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<header><div>
+  <h1>Campus Customs: App Check</h1>
+  <p>Problem 11 · Tested on the running site (frontend :5173, FastAPI + PydanticAI agent :8000) on October 24, 2026 at 12:01 AM.</p>
+</div></header>
+<main>
+  <p class="meta">Screenshots were taken automatically by <code>backend/app_check.py</code>, which drives Chrome like a shopper
+  (types in the chat, clicks cards) and reads the true numbers straight from <code>data/campus_customs.db</code>. Click any screenshot to open it full size.</p>
+  <nav aria-label="Checks"><ol>
+    <li><a href="#inventory">Inventory chat lookup</a></li>
+    <li><a href="#search">Dynamic search cards</a></li>
+    <li><a href="#usability">Usability feature from Problem 9</a></li>
+  </ol></nav>
+
+  <section id="inventory">
+    <h2>1. Inventory chat lookup</h2>
+    <span class="pass">PASS</span>
+    <p class="what">On the Ice Hockey Left Chest Hoodie page, the shopper asked the chat: <i>“How many of these do you have in small and in XXL?”</i></p>
+    <figure>
+      <a href="app_check_images/inventory.png" target="_blank" title="Open full size"><img src="app_check_images/inventory.png" alt="Product page for the Ice Hockey Left Chest Hoodie with the chat answering a stock question"></a>
+      <figcaption>The chat gives exact counts for small and XXL. They match the page’s own stock note for S (selected) and the database below, so nothing is invented.</figcaption>
+    </figure>
+    <blockquote><b>Chat reply:</b> We have 8 in Small and 25 in XXL for the Ice Hockey Left Chest Hoodie. XXL is well stocked, while Small is going a little faster.</blockquote>
+    <p><b>Database truth</b> (<code>inventory</code> table for <code>ice-hockey-left-chest-hoodie</code>; the two sizes asked about are highlighted):</p>
+    <table class='stock'><tr><td class=''>XS<br><b>20</b></td><td class='hl'>S<br><b>8</b></td><td class=' zero'>M<br><b>sold out</b></td><td class=' zero'>L<br><b>sold out</b></td><td class=' zero'>XL<br><b>sold out</b></td><td class='hl'>XXL<br><b>25</b></td></tr></table>
+  </section>
+
+  <section id="search">
+    <h2>2. Dynamic search cards</h2>
+    <span class="pass">PASS</span>
+    <p class="what">From the homepage, the shopper asked: <i>“What hoodies do you have?”</i></p>
+    <figure>
+      <a href="app_check_images/search_cards.png" target="_blank" title="Open full size"><img src="app_check_images/search_cards.png" alt="Products page showing hoodie cards from the chat, with the chat reply open"></a>
+      <figcaption>The agent searched the catalogue, and the site switched to the Products page with <b>27 hoodie cards</b> (image, name, price, short info) under “From your chat”. That matches the 27 hooded items in the database.</figcaption>
+    </figure>
+    <blockquote><b>Chat reply:</b> We’ve got 27 hoodies, from classic Big Yale and Champion styles to family gifts, Bulldog designs, and Yale sports options like hockey, baseball, and tennis. Most are $68.00, with a couple of options at $45.00 and $88.00. I’ve put the full collection on the page for you—Boola boola!</blockquote>
+    <div class="grid2">
+      <figure>
+        <a href="app_check_images/search_cards_grid.png" target="_blank" title="Open full size"><img src="app_check_images/search_cards_grid.png" alt="The full grid of hoodie cards with the chat closed"></a>
+        <figcaption>Chat closed: the full card grid the chat put on the page.</figcaption>
+      </figure>
+      <figure>
+        <a href="app_check_images/search_card_detail.png" target="_blank" title="Open full size"><img src="app_check_images/search_card_detail.png" alt="Detail page opened by clicking the first chat card"></a>
+        <figcaption>Clicking a chat card (“Basic Hoodie Big Yale”) opens the same single-item page from Problem 3: large image, price, colors, and sizes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="usability">
+    <h2>3. Usability feature (Problem 9): “Welcome back, pick up where you left off”</h2>
+    <span class="pass">PASS</span>
+    <p class="what">The seeded test user logged in. The chat opened on its own, greeted them by name, and brought back what they were last looking at, with a clickable product card.</p>
+    <figure>
+      <a href="app_check_images/usability_welcome_back.png" target="_blank" title="Open full size"><img src="app_check_images/usability_welcome_back.png" alt="Chat opened after login with a welcome-back message and product card"></a>
+      <figcaption>Returning customers don’t have to search again. The greeting and cards come from their saved chat history in the <code>chat_messages</code> table, with no AI call.</figcaption>
+    </figure>
+    <blockquote><b>Welcome message:</b> Hey Test, welcome back! Last time you were looking at these (3 picks). Want to keep browsing them?</blockquote>
+
+    <h3>Also verified: sold-out alternatives (Problem 9, agent improvement)</h3>
+    <figure>
+      <a href="app_check_images/usability_sold_out_alternatives.png" target="_blank" title="Open full size"><img src="app_check_images/usability_sold_out_alternatives.png" alt="Chat saying medium is sold out and showing in-stock alternatives as cards"></a>
+      <figcaption>Asked “Do you have this in medium?” on the Crew Left Chest Hoodie page. The chat says M is sold out (database: 0) and puts similar items that <i>do</i> have M on the page.</figcaption>
+    </figure>
+    <blockquote><b>Chat reply:</b> The Crew Left Chest Hoodie is sold out in M. It’s available in XS, S, L, XL, and XXL. Similar hoodies available in M include the Fencing Left Chest Hoodie, Sailing Left Chest Hoodie, and Squash Left Chest Hoodie—I’ve put them here for you.</blockquote>
+    <p><b>Database check:</b> stock in size M for each suggested item:</p>
+    <ul><li>Fencing Left Chest Hoodie: <b>15</b> in M</li><li>Sailing Left Chest Hoodie: <b>25</b> in M</li><li>Squash Left Chest Hoodie: <b>5</b> in M</li></ul>
+  </section>
+</main>
+</body>
+</html>

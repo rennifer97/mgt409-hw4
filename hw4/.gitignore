@@ -1,0 +1,21 @@
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Local data pack (campus_customs.db, product photos) and test credentials
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Generated emails contain customer names and addresses
+output/outbox/
+
+# Python / Node / OS
+.venv/
+__pycache__/
+node_modules/
+dist/
+.DS_Store

@@ -1,0 +1,215 @@
+[
+  {
+    "label": "before",
+    "time": "2026-10-23T23:15:52",
+    "tool_ms_per_call": {
+      "search_catalogue": 0.616,
+      "check_stock": 0.338,
+      "get_product_info": 0.191
+    },
+    "agent": [
+      {
+        "question": "What hoodies do you have?",
+        "median_seconds": 5.09,
+        "all_seconds": [
+          5.09,
+          7.78,
+          4.71
+        ],
+        "model_calls": 2,
+        "input_tokens": 5671,
+        "output_tokens": 351,
+        "reply": "We have 27 hoodies, including the Basic Hoodie Big Yale, Champion full-zip styles, Yale sports hoodies, and family hoodies. I\u2019ve put the full selection on the p"
+      },
+      {
+        "question": "Do you have the Crew Left Chest Hoodie in medium?",
+        "median_seconds": 4.18,
+        "all_seconds": [
+          4.18,
+          19.88,
+          3.11
+        ],
+        "model_calls": 2,
+        "input_tokens": 4307,
+        "output_tokens": 74,
+        "reply": "Sorry, the Crew Left Chest Hoodie is sold out in medium. We do have it in XS, S, L, XL, and XXL."
+      },
+      {
+        "question": "How much is the Yale Dad T Shirt?",
+        "median_seconds": 3.47,
+        "all_seconds": [
+          3.47,
+          3.05,
+          3.66
+        ],
+        "model_calls": 2,
+        "input_tokens": 4228,
+        "output_tokens": 54,
+        "reply": "The Yale Dad T Shirt is $32.00."
+      },
+      {
+        "question": "Show me gray t-shirts under $40",
+        "median_seconds": 4.58,
+        "all_seconds": [
+          27.29,
+          4.58,
+          3.89
+        ],
+        "model_calls": 2,
+        "input_tokens": 5155,
+        "output_tokens": 249,
+        "reply": "I found 17 gray T-shirts under $40, including the Boola Boola, Yale Dad, and sports tees. They\u2019re $32.00 each, and I\u2019ve put the full set on the page for you."
+      }
+    ],
+    "totals": {
+      "avg_median_seconds": 4.33,
+      "avg_input_tokens": 4840,
+      "avg_output_tokens": 182
+    }
+  },
+  {
+    "label": "after (first try, before removing 2 duplicate tools)",
+    "time": "2026-10-23T23:18:53",
+    "tool_ms_per_call": {
+      "search_catalogue": 0.156,
+      "check_stock": 0.011,
+      "get_product_info": 0.01
+    },
+    "agent": [
+      {
+        "question": "What hoodies do you have?",
+        "median_seconds": 4.25,
+        "all_seconds": [
+          4.25,
+          3.78,
+          5.33
+        ],
+        "model_calls": 2,
+        "input_tokens": 6091,
+        "output_tokens": 91,
+        "reply": "We\u2019ve got 27 hoodies! Highlights include the Basic Hoodie Big Yale, Champion full-zip styles, sport hoodies, and family hoodies like Yale Dad and Yale Grandpa. "
+      },
+      {
+        "question": "Do you have the Crew Left Chest Hoodie in medium?",
+        "median_seconds": 6.08,
+        "all_seconds": [
+          16.72,
+          4.34,
+          6.08
+        ],
+        "model_calls": 3,
+        "input_tokens": 7938,
+        "output_tokens": 153,
+        "reply": "Sorry, medium is sold out in the Crew Left Chest Hoodie. We do have it in XS, S, L, XL, and XXL. For medium, similar options include the Fencing Left Chest, Sai"
+      },
+      {
+        "question": "How much is the Yale Dad T Shirt?",
+        "median_seconds": 3.25,
+        "all_seconds": [
+          6.25,
+          3.25,
+          3.12
+        ],
+        "model_calls": 2,
+        "input_tokens": 4900,
+        "output_tokens": 51,
+        "reply": "The Yale Dad T Shirt is $32.00."
+      },
+      {
+        "question": "Show me gray t-shirts under $40",
+        "median_seconds": 3.22,
+        "all_seconds": [
+          2.8,
+          3.22,
+          19.25
+        ],
+        "model_calls": 2,
+        "input_tokens": 5674,
+        "output_tokens": 100,
+        "reply": "I found 18 gray T-shirts under $40, all priced at $32.00. There are some fun picks like the Boola Boola, Yale Dad, and sports tees\u2014I\u2019ve put all 18 on the page f"
+      }
+    ],
+    "totals": {
+      "avg_median_seconds": 4.2,
+      "avg_input_tokens": 6151,
+      "avg_output_tokens": 99
+    }
+  },
+  {
+    "label": "after (final)",
+    "time": "2026-10-23T23:20:48",
+    "tool_ms_per_call": {
+      "search_catalogue": 0.154,
+      "check_stock": 0.011,
+      "get_product_info": 0.01
+    },
+    "agent": [
+      {
+        "question": "What hoodies do you have?",
+        "median_seconds": 3.45,
+        "all_seconds": [
+          3.45,
+          2.97,
+          3.61
+        ],
+        "model_calls": 2,
+        "input_tokens": 5959,
+        "cached_input_tokens": 5707,
+        "uncached_input_tokens": 252,
+        "output_tokens": 87,
+        "reply": "We\u2019ve got 27 hoodies, from classic Big Yale and full-zips to vintage Bulldogs, Yale sports, and family designs. I\u2019ve put the full collection on the page for you"
+      },
+      {
+        "question": "Do you have the Crew Left Chest Hoodie in medium?",
+        "median_seconds": 5.75,
+        "all_seconds": [
+          5.5,
+          5.75,
+          7.12
+        ],
+        "model_calls": 3,
+        "input_tokens": 7740,
+        "cached_input_tokens": 6999,
+        "uncached_input_tokens": 741,
+        "output_tokens": 156,
+        "reply": "Sorry, the Crew Left Chest Hoodie is sold out in medium. It\u2019s available in XS, S, L, XL, and XXL. I found a few similar hoodies in medium: Fencing Left Chest, S"
+      },
+      {
+        "question": "How much is the Yale Dad T Shirt?",
+        "median_seconds": 2.8,
+        "all_seconds": [
+          2.8,
+          3.43,
+          2.53
+        ],
+        "model_calls": 2,
+        "input_tokens": 4768,
+        "cached_input_tokens": 4516,
+        "uncached_input_tokens": 252,
+        "output_tokens": 51,
+        "reply": "The Yale Dad T Shirt is $32.00."
+      },
+      {
+        "question": "Show me gray t-shirts under $40",
+        "median_seconds": 2.79,
+        "all_seconds": [
+          2.79,
+          2.73,
+          3.12
+        ],
+        "model_calls": 2,
+        "input_tokens": 5542,
+        "cached_input_tokens": 5290,
+        "uncached_input_tokens": 252,
+        "output_tokens": 97,
+        "reply": "I found 18 gray T-shirts under $40, all priced at $32.00. Highlights include the Yale Dad, Boola Boola, and Yale Vs Harvard tees\u2014I\u2019ve put them all on the page f"
+      }
+    ],
+    "totals": {
+      "avg_median_seconds": 3.7,
+      "avg_input_tokens": 6002,
+      "avg_output_tokens": 98,
+      "avg_uncached_input_tokens": 374
+    }
+  }
+]

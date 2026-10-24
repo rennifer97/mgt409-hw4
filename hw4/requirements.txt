@@ -1,0 +1,5 @@
+pydantic-ai-slim[openai]>=1.0.0
+python-dotenv>=1.0.1
+fastapi>=0.115.0
+uvicorn>=0.30.0
+playwright>=1.48  # only for backend/app_check.py (Problem 11 site testing)
