@@ -599,3 +599,39 @@ Claude's response: finishing the bag-reminder tests and write-up.
 ### Initial prompt
 
 Great. Problem 13's title should be push to GitHub and submit the URL. So we're going to put our code in a folder named HW4 and push it to a public GitHub repository. On Canvas, submit the repo URL. The link graders can open and clone. You do not need to upload a zip for this homework. Do not put our .env campus underscore customs.db or product images in the GitHub repo. Use .gitignore. Include .env.example with placeholders only. The expected file layout is in the AI Foundation's homework 4 page for number 12, and it has like an example of what it all should look like in our layout, and then also the local only data pack, which is not in Git. The agent itself is 4 files under backend /prompts/prompt.md, agent.py, tools.py, and models.py. readme.md should explain how to run the front end and back end after placing the data pack. Let me know what else we need to do. Let's wrap this up.
+
+### Claude's response
+
+- Checked the layout against the assignment: `AI_prompts.md`,
+  `requirements.txt`, `.env.example` (variable names only), `.gitignore`,
+  `README.md`, `frontend/` (Vite + React + TypeScript), `backend/` (`main.py`
+  plus the four agent files `prompts/prompt.md`, `agent.py`, `tools.py`,
+  `models.py`), and `output/` (`harness.md`, `design.md`, `usability.md`,
+  `app_check.html` + `app_check_images/`, `audit_trail.json`).
+- Wrote `README.md`: place the data pack in `data/`, copy `.env.example` to
+  `.env`, run the backend (`uvicorn main:app --reload --port 8000` from
+  `backend/`) and the frontend (`npm install && npm run dev`), test login, and
+  the file layout. Replaced the template `frontend/README.md`.
+- Tightened `.gitignore` so the whole `data/` folder (database, product
+  photos, test passwords), `.env`, the email outbox, `node_modules`, `.venv`,
+  and `.DS_Store` stay out.
+- Made a git repo with `hw4/` inside and a one-line root README, and
+  committed 71 files (5.1 MB). Scanned every committed file for the real key
+  values and test passwords: none found.
+- Ren chose the repo name `mgt409-hw4` (public). GitHub needs Ren to sign in
+  in the browser panel before the repo can be created and pushed.
+
+### Follow-up prompts
+
+keep going
+
+What was lacking: nothing. Ren had signed in to GitHub in the browser panel
+so the repo could be created.
+
+Claude's response: created the public repo
+**https://github.com/rennifer97/mgt409-hw4** (empty: no README, license, or
+.gitignore from GitHub) and pushed the `main` branch. Verified like a grader:
+an anonymous clone of the public URL has all 71 files with `hw4/` in the
+expected layout, `.env.example` has placeholders only, and there's no `.env`,
+database, product photos, test passwords, or outbox emails. Ren submits the
+repo URL on Canvas.
